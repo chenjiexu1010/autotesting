@@ -1,0 +1,2 @@
+# autotesting
+uiautomator
