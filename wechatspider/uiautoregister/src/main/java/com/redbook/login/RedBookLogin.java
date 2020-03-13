@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class RedBookLogin extends SuperRunner {
 
     //账号登录
-    private static String accountListPath = "/storage/emulated/0/QX_Backup/shellcmd/account.txt";
+    private static String accountListPath =  "/storage/emulated/0/QX_Backup/shellcmd/account.txt";
     //记录执行到哪个账号   账号开始是0    备份开始名称为1
     private static String executePath = "/storage/emulated/0/QX_Backup/shellcmd/number.txt";
     //记录备份到哪里
     private static String backPath = "/storage/emulated/0/QX_Backup/shellcmd/shellexe.txt";
-    //当前执行账号信息
+    //获取当前执行的账号信息
     private static String accountInfo = "";
     //执行到账号索引
     private static int start = 0;
@@ -231,7 +231,6 @@ public class RedBookLogin extends SuperRunner {
             String text = readFileContent(executePath);
             start = Integer.parseInt(text);
             accountInfo = accountList.get(start);
-
         } catch (Exception ex) {
 
         }
