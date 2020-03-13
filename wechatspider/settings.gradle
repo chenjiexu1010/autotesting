@@ -1,0 +1,2 @@
+include ':app', ':uiautoregister'
+include ':utf7Ime'

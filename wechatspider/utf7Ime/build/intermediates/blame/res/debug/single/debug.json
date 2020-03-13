@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\xml_method.xml.flat",
+        "source": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\src\\main\\res\\xml\\method.xml"
+    },
+    {
+        "merged": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\xml_method.xml.flat",
+        "source": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\src\\main\\res\\xml\\method.xml"
+    },
+    {
+        "merged": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    }
+]

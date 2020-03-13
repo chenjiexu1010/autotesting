@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setting>
+    <Host value="222.185.251.62"></Host>
+    <JqsocialUrl value="v2.jqsocial.com"></JqsocialUrl>
+    <path value="/sdcard/Tencent/MicroMsg/WeiXin"></path>
+    <videoPath value="/sdcard/tencent/MicroMsg"></videoPath>
+    <Vps value="小米手机03"></Vps>
+    <mobile value="积奇朋友圈跟踪0003"></mobile>
+    <istest value="否"></istest>
+</setting>
+    <!--<?xml version="1.0" encoding="UTF-8"?>
+    <setting>
+    <Host value="192.168.2.67"></Host>
+    <JqsocialUrl value="192.168.2.67"></JqsocialUrl>
+    <path value="/sdcard/tencent/MicroMsg/WeiXin"></path>
+    <videoPath value="/sdcard/tencent/MicroMsg"></videoPath>
+    <Vps value="小米手机01"></Vps>
+    <mobile value="积奇朋友圈跟踪"></mobile>
+    <istest value="是"></istest>
+    </setting>-->
