@@ -195,6 +195,8 @@ public class RedBookSearch extends SuperRunner {
                             useless_btn.click();
                             sleep(2000);
                         }
+                        device.pressBack();
+                        sleep(2000);
                     }
                     // 更新刷下拉次数
                     SubmitDropDownData(search_word);
