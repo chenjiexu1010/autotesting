@@ -11,6 +11,7 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.base.jqhelper;
 import com.common.SuperRunner;
 import com.common.helper.HttpHelper;
+import com.common.helper.ScriptHelper;
 import com.common.jutf7.Utf7ImeHelper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -173,31 +174,30 @@ public class RedBookSearch extends SuperRunner {
                     device.pressEnter();
                     sleep(2000);
                     System.out.println("搜索成功");
-                    // 滑动页面
-                    UiScrollable scroll = new UiScrollable(new UiSelector().className("androidx.viewpager.widget.ViewPager"));
-                    if (scroll.exists()) {
-                        System.out.println("开始浏览博文");
-                        scroll.setSwipeDeadZonePercentage(0.15);
-                        for (int j = 0; j < times; j++) {
-                            if (useless_btn.waitForExists(3000)) {
-                                useless_btn.click();
-                                sleep(2000);
-                            }
-                            scroll.scrollForward();
-                            sleep(10000);
-                        }
+
+                    System.out.println("开始浏览博文");
+                    for (int j = 0; j < times; j++) {
                         if (useless_btn.waitForExists(3000)) {
                             useless_btn.click();
                             sleep(2000);
                         }
-                        scroll.scrollBackward();
-                        if (useless_btn.waitForExists(3000)) {
-                            useless_btn.click();
-                            sleep(2000);
-                        }
-                        device.pressBack();
+                        ScriptHelper.swipe(0, 1200, 0, 400);
+//                            scroll.scrollForward();
+                        sleep(10000);
+                    }
+                    if (useless_btn.waitForExists(3000)) {
+                        useless_btn.click();
                         sleep(2000);
                     }
+//                        scroll.scrollBackward();
+                    ScriptHelper.swipe(0, 400, 0, 1200);
+                    if (useless_btn.waitForExists(3000)) {
+                        useless_btn.click();
+                        sleep(2000);
+                    }
+                    device.pressBack();
+                    sleep(2000);
+
                     // 更新刷下拉次数
                     SubmitDropDownData(search_word);
                 }
@@ -278,8 +278,10 @@ public class RedBookSearch extends SuperRunner {
             Runtime.getRuntime().exec("am start com.littlerich.holobackup/.MainActivity");
             sleep(10000);
             UiObject reduction_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("一键还原"));
-            reduction_btn.clickAndWaitForNewWindow(3000);
-            sleep(2000);
+            if (reduction_btn.waitForExists(5000)) {
+                reduction_btn.clickAndWaitForNewWindow(3000);
+                sleep(2000);
+            }
             // 获取本次需要还原的备份文件名
             UiObject list_view = new UiObject(new UiSelector().className("android.widget.ListView").resourceId("com.littlerich.holobackup:id/listView"));
             if (list_view.exists()) {
@@ -294,11 +296,16 @@ public class RedBookSearch extends SuperRunner {
                     scroll_btn.scrollTextIntoView(name);
                     // 点击还原小红书数据
                     UiObject redbook_btn = new UiObject(new UiSelector().className("android.widget.TextView").text(name));
-                    redbook_btn.clickAndWaitForNewWindow(2000);
+                    if (redbook_btn.waitForExists(5000)) {
+                        redbook_btn.clickAndWaitForNewWindow(2000);
+                        sleep(2000);
+                    }
                     // 点击数据还原
                     UiObject data_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("数据还原"));
-                    data_btn.clickAndWaitForNewWindow(2000);
-                    sleep(10000);
+                    if (data_btn.waitForExists(5000)) {
+                        data_btn.clickAndWaitForNewWindow(2000);
+                        sleep(10000);
+                    }
                     // 将新的数字写入txt文件中
                     start += 1;
                     saveAsFileWriter(filePath, start + "");
@@ -335,8 +342,10 @@ public class RedBookSearch extends SuperRunner {
             sleep(8000);
             // 点击更多
             UiObject more_btn = new UiObject(new UiSelector().className("android.widget.ImageView").descriptionContains("更多选项"));
-            more_btn.clickAndWaitForNewWindow(3000);
-            sleep(2000);
+            if (more_btn.waitForExists(5000)) {
+                more_btn.clickAndWaitForNewWindow(3000);
+                sleep(2000);
+            }
             // 点击一键变机
             UiObject change_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("一键变机"));
             if (change_btn.waitForExists(3000)) {
