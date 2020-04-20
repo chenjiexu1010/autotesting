@@ -1,6 +1,47 @@
 {
     "logs": [
         {
+            "outputFile": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "6,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "192,525",
+                        "endLines": "12,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "484,682"
+                    },
+                    "to": {
+                        "startLines": "3,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "116,407",
+                        "endLines": "9,12",
+                        "endColumns": "12,12",
+                        "endOffsets": "402,562"
+                    }
+                },
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endColumns": "60",
+                        "endOffsets": "75"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "60",
+                        "endOffsets": "111"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
             "map": [
                 {
@@ -25,10 +66,58 @@
             ]
         },
         {
+            "outputFile": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
+            "map": [
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values-v14\\styles.xml",
+                    "from": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "227",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "375"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "201"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
             "map": [
                 {
                     "source": "E:\\MobilePhoneScript\\wechatspider\\utf7Ime\\src\\main\\res\\values-v11\\styles.xml",
+                    "from": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "183",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "317"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "187"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
+            "map": [
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",

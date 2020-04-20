@@ -7,6 +7,7 @@ import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.UiWatcher;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.base.jqhelper;
 import com.common.SuperRunner;
@@ -55,9 +56,17 @@ public class RedBookSearch extends SuperRunner {
     private static String file = "/storage/emulated/0/QX_Backup/shellcmd/uselessNumber.txt";
 
     public void test_main() {
-        System.out.println("into111");
-        jqhelper.writeSDFileEx2("进入了" + "\n", "/sdcard/error.txt");
-
+        try {
+            getUiDevice().registerWatcher("watcher", new UiWatcher() {
+                @Override
+                public boolean checkForCondition() {
+                    getUiDevice().pressBack();
+                    return true;
+                }
+            });
+        } catch (Exception e) {
+            jqhelper.writeSDFileEx2(e.toString(), "/sdcard/error.txt");
+        }
         while (true) {
             try {
                 // 读取txt中的数字，0：数据还原，1：小红书搜索操作
@@ -69,13 +78,12 @@ public class RedBookSearch extends SuperRunner {
                     clear_data();
                     if (reductionData()) {
                         Date date = new Date();
-                        System.out.println(date.toString());
                         jqhelper.writeSDFileEx("今日工作完成：" + date.toString() + "\n", "/sdcard/WorLog.txt");
                         changeSystem();
                     }
                 }
                 if ("1".equals(flag_exe)) {
-                    // 切换输入法
+                    // 更换输入法
                     change_input_method();
                     int times = 3;
                     // 执行下拉词搜索
@@ -86,7 +94,6 @@ public class RedBookSearch extends SuperRunner {
                     close_bj();
                     if (reductionData()) {
                         Date date = new Date();
-                        System.out.println(date.toString());
                         jqhelper.writeSDFileEx("今日工作完成：" + date.toString() + "\n", "/sdcard/WorLog.txt");
                         changeSystem();
                     }
@@ -96,14 +103,32 @@ public class RedBookSearch extends SuperRunner {
                 jqhelper.writeSDFileEx("异常：" + e.toString() + " \n", "/sdcard/error.txt");
             }
         }
-//        try {
-//            search_word_list = get_hot_words_by_server();
-//            System.out.println(search_word_list);
-////            SubmitDropDownData("整形推荐上海奇妍");
-//        } catch (Exception e) {
-//
-//
-//        }
+
+    }
+
+    /**
+     * 判断是否登录账号
+     *
+     * @return
+     */
+    public boolean CheckIsHome() {
+        try {
+            // 同意按钮
+            UiObject agree_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("同意"));
+            if (agree_btn.waitForExists(5000)) {
+                writer(file, start + "_6.36.0");
+                return false;
+            }
+            // 手机号登录界面
+            UiObject phone_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("手机号登录"));
+            if (phone_btn.waitForExists(5000)) {
+                writer(file, start + "_6.36.0");
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     /**
@@ -118,52 +143,47 @@ public class RedBookSearch extends SuperRunner {
             device.wakeUp();
             device.pressHome();
             Runtime.getRuntime().exec("am start com.xingin.xhs/.activity.SplashActivity");
-            sleep(8000);
-            // 同意按钮
-            UiObject agree_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("同意"));
-            if (agree_btn.waitForExists(5000)) {
-                writer(file, start + "_6.36.0");
+            sleep(30000);
+            // 返回首页
+//            device.pressHome();
+//            Runtime.getRuntime().exec("am start com.xingin.xhs/.activity.SplashActivity");
+            if (!CheckIsHome()) {
+                System.out.println("当前账号不在首页无法进行工作");
                 return false;
             }
-            // 手机号登录界面
-            UiObject phone_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("手机号登录"));
-            if (phone_btn.waitForExists(5000)) {
-                writer(file, start + "_6.36.0");
-                return false;
-            }
-            UiObject number_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("本机号码一键绑定"));
-            if (number_btn.waitForExists(5000)) {
-                device.pressBack();
-                sleep(3000);
+            // 判断取消更新按钮
+            UiObject cancelBtn = new UiObject(new UiSelector().className("android.widget.Button").text("取消"));
+            if (cancelBtn.waitForExists(2000)) {
+                cancelBtn.click();
+                jqhelper.delay(2000);
+            } else {
+                System.out.println("取消按钮不存在");
             }
             // 提示绑定手机号
-            UiObject binding_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("立即绑定"));
-            if (binding_btn.waitForExists(10000)) {
-                device.pressBack();
+            UiObject binding_btn = new UiObject(new UiSelector().className("android.widget.ImageView").text("com.xingin.xhs:id/b3w"));
+            if (binding_btn.waitForExists(5000)) {
+                binding_btn.click();
                 sleep(3000);
+            } else {
+                System.out.println("绑定手机按钮不存在");
             }
             // 点击暂时不用
             UiObject useless_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("暂时不用"));
-            if (useless_btn.waitForExists(10000)) {
+            if (useless_btn.waitForExists(5000)) {
                 useless_btn.click();
                 sleep(3000);
+            } else {
+                System.out.println("暂时不用按钮不存在");
             }
-            device.click(514, 253);
-            // 点击搜索框
-//            UiObject search_btn = new UiObject(new UiSelector().className("android.widget.FrameLayout").resourceId("com.xingin.xhs:id/b87"));
-//            if (search_btn.waitForExists(5000)) {
-//                System.out.println("我进来了");
-//                search_btn.click();
-//                sleep(3000);
-//            }
-            sleep(3000);
-
             // 获取下拉词
             search_word_list = get_hot_words_by_server();
-//            search_word_list.add("整形推荐上海奇妍");
             for (int i = 0; i < search_word_list.size(); i++) {
                 search_word = search_word_list.get(i);
+                if (search_word.equals("")) {
+                    continue;
+                }
                 device.click(457, 137);
+                jqhelper.delay(5000);
                 UiObject search_input = new UiObject(new UiSelector().className("android.widget.EditText").resourceId("com.xingin.xhs:id/b9e"));
                 if (search_input.waitForExists(5000)) {
                     // 清空搜索栏
@@ -173,9 +193,6 @@ public class RedBookSearch extends SuperRunner {
                     search_input.setText(Utf7ImeHelper.e(search_word));
                     device.pressEnter();
                     sleep(2000);
-                    System.out.println("搜索成功");
-
-                    System.out.println("开始浏览博文");
                     for (int j = 0; j < times; j++) {
                         if (useless_btn.waitForExists(3000)) {
                             useless_btn.click();
@@ -197,11 +214,9 @@ public class RedBookSearch extends SuperRunner {
                     }
                     device.pressBack();
                     sleep(2000);
-
                     // 更新刷下拉次数
                     SubmitDropDownData(search_word);
                 }
-
             }
             // 将0写入文件
             saveAsFileWriter(filePathexe, "0");
@@ -517,7 +532,7 @@ public class RedBookSearch extends SuperRunner {
      */
     private ArrayList<String> get_hot_words_by_server() {
         try {
-            String result = HttpHelper.httpPostForString(this.httpPostUrl, gson.toJson("婚纱摄影首选韩国艺匠"));
+            String result = HttpHelper.httpPostForString(this.httpPostUrl, gson.toJson(""));
             if (!"".equals(result)) {
                 Type type = new TypeToken<String>() {
                 }.getType();

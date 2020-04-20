@@ -1,67 +1,67 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:1-47:12
 	package
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:20:5-39
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:20:5-39
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:22:5-30
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:22:5-30
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:11-69
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:19:11-69
 	android:versionCode
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:21:5-28
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:21:5-28
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
-INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
+INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:24:5-26:41
 	android:targetSdkVersion
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:26:9-38
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:26:9-38
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:25:9-35
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
-		INJECTED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:25:9-35
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
+		INJECTED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml
 application
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:28:5-45:19
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:28:5-45:19
 	android:label
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:31:9-41
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:31:9-41
 	android:icon
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:30:9-45
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:30:9-45
 	android:allowBackup
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:29:9-35
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:29:9-35
 	android:theme
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:32:9-40
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:32:9-40
 service#jp.jun_nama.test.utf7ime.Utf7ImeService
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:33:9-44:19
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:33:9-44:19
 	android:enabled
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:35:13-35
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:35:13-35
 	android:permission
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:36:13-70
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:36:13-70
 	android:name
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:34:13-67
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:34:13-67
 intent-filter#android.view.InputMethod
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:37:13-39:29
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:37:13-39:29
 action#android.view.InputMethod
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:38:17-67
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:38:17-67
 	android:name
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:38:25-64
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:38:25-64
 meta-data#android.view.im
-ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:41:13-43:50
+ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:41:13-43:50
 	android:resource
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:43:17-47
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:43:17-47
 	android:name
-		ADDED from E:\GitRepositories\wechat\wechatspider\utf7Ime\src\main\AndroidManifest.xml:42:17-47
+		ADDED from E:\GitRepositories\mobilephone\autotesting\wechatspider\utf7Ime\src\main\AndroidManifest.xml:42:17-47

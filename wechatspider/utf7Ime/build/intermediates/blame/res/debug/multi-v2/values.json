@@ -42,6 +42,47 @@
             ]
         },
         {
+            "outputFile": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "6,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "192,525",
+                        "endLines": "12,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "484,682"
+                    },
+                    "to": {
+                        "startLines": "3,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "116,407",
+                        "endLines": "9,12",
+                        "endColumns": "12,12",
+                        "endOffsets": "402,562"
+                    }
+                },
+                {
+                    "source": "E:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endColumns": "60",
+                        "endOffsets": "75"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "60",
+                        "endOffsets": "111"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "E:\\GitRepositories\\wechat\\wechatspider\\utf7Ime\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {

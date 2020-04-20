@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,6 +36,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -264,6 +266,68 @@ public class jqhelper {
         }
     }
 
+    public static void changeSystem() {
+        try {
+            openBJ();
+            UiObject moreButton = new UiObject(new UiSelector().className("android.widget.ImageView").descriptionContains("更多选项"));
+            if (moreButton.exists()) {
+                moreButton.clickAndWaitForNewWindow(3000);
+                jqhelper.delay(2000);
+            }
+
+            UiObject changeButton = new UiObject(new UiSelector().className("android.widget.TextView").text("一键变机"));
+            if (changeButton.exists()) {
+                changeButton.clickAndWaitForNewWindow(2000);
+                jqhelper.delay(2000);
+            }
+
+            UiObject yesButton = new UiObject(new UiSelector().className("android.widget.Button").text("确定"));
+            if (yesButton.exists()) {
+                yesButton.clickAndWaitForNewWindow(2000);
+                jqhelper.delay(2000);
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Change system is exception：" + ex.toString());
+        }
+    }
+
+    private static void openBJ() {
+        execShellCmd("am start " + "com.littlerich.holobackup/.MainActivity");
+        jqhelper.delay(5 * 1000);
+        UiObject backup_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("一键备份"));
+        for (int i = 0; i < 15; i++) {
+            if (backup_btn.exists()) {
+                break;
+            }
+            backup_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("一键备份"));
+            jqhelper.delay(2 * 1000);
+        }
+    }
+
+    public static void downloadPicture(String urlList, String path) {
+        URL url = null;
+        try {
+            url = new URL(urlList);
+            DataInputStream dataInputStream = new DataInputStream(url.openStream());
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(path));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = dataInputStream.read(buffer)) > 0) {
+                output.write(buffer, 0, length);
+            }
+            fileOutputStream.write(output.toByteArray());
+            dataInputStream.close();
+            fileOutputStream.close();
+        } catch (MalformedURLException e) {
+            jqhelper.writeSDFileEx2("下载图片异常：" + urlList + path + e.toString() + " \n", "/sdcard/error.txt");
+            e.printStackTrace();
+        } catch (IOException e) {
+            jqhelper.writeSDFileEx2("下载图片异常：" + urlList + path + e.toString() + " \n", "/sdcard/error.txt");
+        }
+    }
+
     //等待一段时间
     public static void delay(long ms) {
         try {
@@ -471,6 +535,29 @@ public class jqhelper {
             writeSDFileEx(dateString, "/sdcard/appstatus.txt");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 修改手机文件内容
+     *
+     * @param filePath1
+     * @param content
+     */
+    public static void saveAsFileWriter(String filePath1, String content) {
+        FileWriter fwriter = null;
+        try {
+            fwriter = new FileWriter(filePath1);
+            fwriter.write(content);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                fwriter.flush();
+                fwriter.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

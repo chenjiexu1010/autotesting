@@ -1,7 +1,7 @@
 #Internal package file, do not edit.
-#Tue Nov 05 14:15:36 CST 2019
+#Sat Mar 14 13:34:25 CST 2020
 0.baseType=DIRECTORY
-0.base=E\:\\MobilePhoneScript\\wechatspider\\utf7Ime\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.base=E\:\\GitRepositories\\mobilephone\\autotesting\\wechatspider\\utf7Ime\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex
 0.set=DEX
 count=1

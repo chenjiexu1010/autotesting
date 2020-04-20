@@ -98,10 +98,10 @@ public class RedBookEdit extends SuperRunner {
         // 关闭app
         Runtime.getRuntime().exec("am force-stop com.xingin.xhs");
         jqhelper.delay(2000);
-    // 清除app数据
+        // 清除app数据
         Runtime.getRuntime().exec("pm clear com.xingin.xhs");
         jqhelper.delay(4000);
-}
+    }
 
     /**
      * 小红书重新登录
@@ -113,9 +113,15 @@ public class RedBookEdit extends SuperRunner {
             // 打开小红书
             Runtime.getRuntime().exec("am start com.xingin.xhs/.activity.SplashActivity");
             jqhelper.delay(10000);
+            UiObject agree_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("同意"));
+            if (agree_btn.waitForExists(5000)) {
+                agree_btn.click();
+                sleep(2000);
+            }
             // 判断是否需要重新登录
             UiObject mobile_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("手机号登录"));
             if (!mobile_btn.waitForExists(5000)) {
+                System.out.println("手机号不存在");
                 return;
             }
             // 点击微博授权登录
@@ -141,6 +147,12 @@ public class RedBookEdit extends SuperRunner {
             if (login_btn.waitForExists(5000)) {
                 login_btn.click();
                 jqhelper.delay(2000);
+            }
+            // 点击确定
+            UiObject nameConfirm_btn = new UiObject(new UiSelector().className("android.widget.Button").text("确定"));
+            if (nameConfirm_btn.waitForExists(5000)) {
+                nameConfirm_btn.click();
+                sleep(2000);
             }
             // 判断是否开启设备权限
             UiObject device_auth__btn = new UiObject(new UiSelector().className("android.widget.TextView").text("暂时不用"));
@@ -188,6 +200,7 @@ public class RedBookEdit extends SuperRunner {
                 UiObject note = new UiObject(new UiSelector().className("androidx.recyclerview.widget.RecyclerView"))
                         .getChild(new UiSelector().className("android.widget.FrameLayout").index(count))
                         .getChild(new UiSelector().className("android.widget.TextView").index(execute).textContains(title));
+                System.out.println(title);
                 if (note.waitForExists(5000)) {
                     execute += 1;
                     count += 1;
@@ -195,7 +208,7 @@ public class RedBookEdit extends SuperRunner {
                     jqhelper.delay(2000);
                     // 下拉三次匹配标题
                     for (int i = 0; i <= 1; i++) {
-                        UiObject title_ele = new UiObject(new UiSelector().className("android.widget.TextView").textContains("2020年地狱班的开局，希望一切都好好的"));
+                        UiObject title_ele = new UiObject(new UiSelector().className("android.widget.TextView").textContains(title));
                         if (title_ele.waitForExists(5000)) {
                             // 点击更多 执行再编辑功能
                             UiObject more_btn = new UiObject(new UiSelector().className("android.widget.ImageView").resourceId("com.xingin.xhs:id/moreOperateIV"));
@@ -251,6 +264,12 @@ public class RedBookEdit extends SuperRunner {
             UiObject cancel_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("取消"));
             if (cancel_btn.waitForExists(3000)) {
                 cancel_btn.click();
+                jqhelper.delay(2000);
+            }
+            // 判断是否开启设备权限
+            UiObject device_auth__btn = new UiObject(new UiSelector().className("android.widget.TextView").text("暂时不用"));
+            if (device_auth__btn.waitForExists(5000)) {
+                device_auth__btn.click();
                 jqhelper.delay(2000);
             }
         } catch (Exception ex) {

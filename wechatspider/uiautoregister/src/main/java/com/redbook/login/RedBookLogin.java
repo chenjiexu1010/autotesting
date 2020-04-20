@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class RedBookLogin extends SuperRunner {
 
     //账号登录
-    private static String accountListPath =  "/storage/emulated/0/QX_Backup/shellcmd/account.txt";
+    private static String accountListPath = "/storage/emulated/0/QX_Backup/shellcmd/account.txt";
     //记录执行到哪个账号   账号开始是0    备份开始名称为1
     private static String executePath = "/storage/emulated/0/QX_Backup/shellcmd/number.txt";
     //记录备份到哪里
@@ -154,7 +154,6 @@ public class RedBookLogin extends SuperRunner {
                     jqhelper.writeSDFileEx(e.toString(), "/sdcard/error.txt");
                 }
             }
-
         } catch (Exception ex) {
             jqhelper.writeSDFileEx("异常：" + ex.toString() + " \n", "/sdcard/error.txt");
         }
@@ -232,7 +231,7 @@ public class RedBookLogin extends SuperRunner {
             start = Integer.parseInt(text);
             accountInfo = accountList.get(start);
         } catch (Exception ex) {
-
+            jqhelper.writeSDFileEx2(ex.toString() + "\n", "/sdcard/error.txt");
         }
         return accountInfo;
     }
@@ -255,6 +254,8 @@ public class RedBookLogin extends SuperRunner {
      */
     private boolean bj_backups() {
         try {
+            String text = readFileContent(backPath);
+            int number = Integer.parseInt(text);
             // 打开变机大师
             Runtime.getRuntime().exec("am start com.littlerich.holobackup/.MainActivity");
             sleep(10000);
@@ -272,7 +273,7 @@ public class RedBookLogin extends SuperRunner {
 
             UiObject ed = new UiObject(new UiSelector().className("android.widget.EditText"));
             if (ed.waitForExists(10000)) {
-                ed.setText(Utf7ImeHelper.e(num_start + ""));
+                ed.setText(Utf7ImeHelper.e(number + ""));
                 sleep(3000);
             }
             UiObject ed2 = new UiObject(new UiSelector().className("android.widget.Button").text("确定"));
@@ -404,7 +405,7 @@ public class RedBookLogin extends SuperRunner {
     }
 
     /**
-     * 短信弹窗判断
+     * 重启弹窗判断
      */
     private void ShortMessageJudge() {
         try {

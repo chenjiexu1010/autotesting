@@ -35,6 +35,8 @@ public class YangHao extends SuperRunner {
     private static String filePathexe = "/storage/emulated/0/QX_Backup/shellcmd/shellexe.txt";
     // 保存博文内容
     private static String contentPathexe = "/storage/emulated/0/QX_Backup/shellcmd/content.txt";
+    // 保存服务器id路径
+    private static String saveBackUpIdPath = "/storage/emulated/0/QX_Backup/shellcmd/savebackupid.txt";
     // 保存图片路劲
     private static String savePicPath = "/storage/emulated/0/DCIM/Camera";
     // 获取发博文内容以及评论内容
@@ -43,6 +45,8 @@ public class YangHao extends SuperRunner {
     private static String submitContentPath = "http://v3.jqsocial.com:22018/api/phonemanager/submitdata";
     // 全局昵称显示
     private static String weiBoAccountName = "";
+    //
+    private static String backUpIds = "";
     // 随机函数
     private static Random random = new Random();
 
@@ -51,6 +55,7 @@ public class YangHao extends SuperRunner {
      */
     public void test_weiboexecute() {
         try {
+            ShortMessageJudge();
             //获取设备
             Device = getUiDevice();
             while (true) {
@@ -83,6 +88,10 @@ public class YangHao extends SuperRunner {
                     }
                     // 执行养号工作
                     if (execute.equals("1")) {
+                        String id = jqhelper.readSDFile(saveBackUpIdPath);
+                        if (!id.equals("")) {
+                            backUpIds = id;
+                        }
                         Device.wakeUp();
                         // 处理保存到本地的数据
                         String info = jqhelper.readSDFile(contentPathexe);
@@ -101,15 +110,6 @@ public class YangHao extends SuperRunner {
                             GetNickName();
                             //设置输入法
                             change_input_method();
-                            //发送博文内容需要添加检测码
-//                            Calendar now = Calendar.getInstance();
-//                            String checkCode = now.get(Calendar.YEAR) + now.get(Calendar.MONTH) + 1 + now.get(Calendar.DAY_OF_MONTH) + getRandomString(3);
-                            //进入首页
-                            UiObject home_btn = new UiObject(new UiSelector().className("android.view.View").description("首页"));
-                            if (home_btn.waitForExists(5000)) {
-                                home_btn.click();
-                                sleep(5000);
-                            }
                             //点击签到
                             PerdaySignIn();
                             //浏览热搜
@@ -117,35 +117,19 @@ public class YangHao extends SuperRunner {
                             //发送博文
                             SendBlog(data.getContent().replace("#", "").replace("@", "艾特") + data.getCheckCode().trim(), data.PicUrls, data.getCheckCode());
                             //回复评论
-                            ReplayComment(data.getComment());
+//                            ReplayComment(data.getComment());
                         }
                     }
                     saveAsFileWriter(filePathexe, "2");
                     HttpHelper.DeleteFile(new File(savePicPath));
                 } catch (Exception ex) {
+                    System.out.println(ex);
                     jqhelper.writeSDFileEx2("循环执行出现错误：" + ex.toString() + " \n", "/sdcard/error.txt");
                 }
             }
         } catch (Exception e) {
             jqhelper.writeSDFileEx2("异常：" + e.toString() + " \n", "/sdcard/error.txt");
         }
-    }
-
-    /**
-     * 随机获取字符串
-     *
-     * @param length
-     * @return
-     */
-    public static String getRandomString(int length) {
-        String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        Random random = new Random();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < length; i++) {
-            int number = random.nextInt(62);
-            sb.append(str.charAt(number));
-        }
-        return sb.toString();
     }
 
     /**
@@ -222,20 +206,26 @@ public class YangHao extends SuperRunner {
         try {
             // 点击发现按钮
             UiObject search_btn = new UiObject(new UiSelector().className("android.view.View").descriptionContains("发现"));
-            if (search_btn.waitForExists(2000)) {
+            if (search_btn.waitForExists(5000)) {
                 search_btn.click();
                 jqhelper.delay(20000);
                 Device.pressBack();
+                sleep(2000);
             }
-            int count = random.nextInt(10);
+            int count = random.nextInt(20);
             for (int i = 0; i <= count; i++) {
                 ScriptHelper.swipe(0, 1200, 0, 800);
                 jqhelper.delay(5000);
             }
             while (true) {
+                ob = new UiObject(new UiSelector().className("android.widget.TextView").resourceId("com.sina.weibo:id/detail_activity_header_left_button_text"));
+                if (ob.waitForExists(2000)) {
+                    ob.clickAndWaitForNewWindow(2000);
+                    jqhelper.delay(2000);
+                }
                 UiObject zan_btn = new UiObject(new UiSelector().className("android.widget.LinearLayout").resourceId("com.sina.weibo:id/rightButton"));
                 if (zan_btn.waitForExists(2000)) {
-                    zan_btn.click();
+//                    zan_btn.click();
                     jqhelper.delay(1000 * 30);
                     // 返回发现页
                     Device.pressBack();
@@ -272,6 +262,7 @@ public class YangHao extends SuperRunner {
 //            }
             // 返回首页
             Device.pressBack();
+            jqhelper.delay(5000);
         } catch (Exception ex) {
             jqhelper.writeSDFileEx2(ex.toString(), "/sdcard/error.txt");
         }
@@ -351,6 +342,17 @@ public class YangHao extends SuperRunner {
             // 等待云数据还原成功
             while (true) {
                 if (sure_btn.waitForExists(10000)) {
+                    System.out.println("重启中");
+                    // 保存项目ID
+                    ob = new UiObject(new UiSelector().className("android.widget.TextView").textContains("请重启"));
+                    if (ob.waitForExists(2000)) {
+                        String backUpId = ob.getText();
+                        if (!backUpId.equals("")) {
+                            // 云还原成功ID:2234,请重启
+                            backUpId = backUpId.split(":")[1].split(",")[0];
+                            jqhelper.writeSDFileEx(backUpId, "/storage/emulated/0/QX_Backup/shellcmd/savebackupid.txt");
+                        }
+                    }
                     // 将文件写为1
                     saveAsFileWriter(filePathexe, "1");
                     sure_btn.click();
@@ -373,6 +375,12 @@ public class YangHao extends SuperRunner {
             device.pressHome();
             Runtime.getRuntime().exec("am start com.sina.weibo/.SplashActivity");
             sleep(8000);
+            // TODO  判断还原数据是否为空
+            ob = new UiObject(new UiSelector().className("android.widget.Button").text("用帐号密码登录"));
+            if (ob.waitForExists(5000)) {
+                System.out.println("微博还原数据为空");
+                return false;
+            }
             UiObject open_btn = new UiObject(new UiSelector().className("android.widget.TextView").text("\t\t开启\t\t"));
             if (open_btn.exists()) {
                 open_btn.clickAndWaitForNewWindow(2000);
@@ -458,6 +466,12 @@ public class YangHao extends SuperRunner {
                 // 更新账号状态
                 SubmitWeiBoRequest(weiBoAccountName, "异常", "");
                 jqhelper.delay(2000);
+            }
+            //进入首页
+            UiObject home_btn = new UiObject(new UiSelector().className("android.view.View").description("首页"));
+            if (home_btn.waitForExists(5000)) {
+                home_btn.click();
+                sleep(5000);
             }
         } catch (Exception e) {
             jqhelper.writeSDFileEx2("获取昵称：" + e.toString() + " \n", "/sdcard/error.txt");
@@ -610,7 +624,7 @@ public class YangHao extends SuperRunner {
      */
     private void SubmitWeiBoRequest(String nickName, String message, String checkCode) {
         try {
-            String postData = String.format("{\"NickName\":\"%s\",\"Message\":\"%s\",\"CheckCode\":\"%s\"}", new Object[]{nickName, message, checkCode});
+            String postData = String.format("{\"NickName\":\"%s\",\"Message\":\"%s\",\"CheckCode\":\"%s\",\"BackUpId\":\"%s\"}", new Object[]{nickName, message, checkCode, backUpIds});
             String result = HttpHelper.httpPostForString(this.submitContentPath, postData);
             jqhelper.writeSDFileEx2(result, "/sdcard/error.txt");
         } catch (Exception ex) {
@@ -675,6 +689,22 @@ public class YangHao extends SuperRunner {
             }
         }
     }
+
+    /**
+     * 短信弹窗判断
+     */
+    private void ShortMessageJudge() {
+        try {
+            ob = new UiObject(new UiSelector().className("android.widget.Button").text("关闭应用"));
+            if (ob.waitForExists(2000)) {
+                ob.click();
+                jqhelper.delay(2000);
+            }
+        } catch (Exception ex) {
+            jqhelper.writeSDFileEx2(ex.toString() + "\n", "/sdcard/error.txt");
+        }
+    }
+
 
 }
 
